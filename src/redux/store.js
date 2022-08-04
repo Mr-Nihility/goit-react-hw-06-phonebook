@@ -1,13 +1,9 @@
-// const import { reducerName } from './reducer'
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
+import { contactsReducer } from './contacts/contacts-reducers';
 //-----------------------------------------------------//
-const InitialState = {
-  contacts: {
-    items: [],
-    filter: '',
-  },
-};
-const reducer = (state = {}, { type, payload }) => state;
-const store = createStore(reducer, InitialState);
+const rootReducer = combineReducers({
+  contacts: contactsReducer,
+});
+export const store = createStore(rootReducer, InitialState);
 
-export default store;
+// export default store;
