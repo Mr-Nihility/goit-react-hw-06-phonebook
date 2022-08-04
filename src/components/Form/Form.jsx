@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import s from './Form.module.css';
-import PropTypes from 'prop-types';
+import { useSelector, useDispatch } from 'react-redux';
+import { addUser } from 'redux/contacts/contscts-actions';
+// import PropTypes from 'prop-types';
 //--------------------------------------------------------------//
 
-const Form = ({ onSubmit }) => {
+const Form = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const contacts = useSelector(({ contacts }) => contacts.items);
+  const dispatch = useDispatch();
 
   const handlerChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -29,7 +33,16 @@ const Form = ({ onSubmit }) => {
       alert('Please, fill all fields');
       return;
     }
-    onSubmit({ name, number, id });
+    const inContacts = contacts.some(
+      item => item.name.toLowerCase() === name.toLowerCase()
+    );
+
+    if (inContacts) {
+      alert(`${name} is already in contacts`);
+      return;
+    }
+
+    dispatch(addUser({ name, number, id }));
     setName('');
     setNumber('');
   };
@@ -69,8 +82,8 @@ const Form = ({ onSubmit }) => {
   );
 };
 
-Form.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
+// Form.propTypes = {
+//   onSubmit: PropTypes.func.isRequired,
+// };
 
 export { Form };

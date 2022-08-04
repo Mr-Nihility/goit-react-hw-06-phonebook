@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+
 import s from './Container.module.css';
 //--------------------------------------------//
 const Container = ({ title, children }) => {

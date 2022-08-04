@@ -1,7 +1,6 @@
 import { ADD, DELETE, FILTER } from './contacts-types';
 
 import { combineReducers } from 'redux';
-
 const itemReducer = (state = [], { type, payload }) => {
   switch (type) {
     case ADD:
@@ -24,6 +23,6 @@ const filterReducer = (state = '', { type, payload }) => {
 };
 
 export const contactsReducer = combineReducers({
-  item: itemReducer,
+  items: itemReducer,
   filter: filterReducer,
 });

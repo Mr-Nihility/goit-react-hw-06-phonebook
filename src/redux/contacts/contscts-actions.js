@@ -4,4 +4,4 @@ export const addUser = user => ({ type: ADD, payload: user });
 
 export const deleteUser = id => ({ type: DELETE, payload: id });
 
-export const filter = value => ({ type: FILTER, payload: value });
+export const filterUser = value => ({ type: FILTER, payload: value });
