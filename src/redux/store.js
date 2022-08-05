@@ -25,6 +25,7 @@ const store = configureStore({
   reducer: {
     contacts: persistedReducer,
   },
+  devTools: process.env.NODE_ENV !== 'production',
   middleware: getDefaultMiddleware({
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
