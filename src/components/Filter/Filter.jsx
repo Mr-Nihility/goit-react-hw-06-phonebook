@@ -1,9 +1,10 @@
 import s from './Filter.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { filterUser } from 'redux/contacts/contscts-actions';
+import { filterSelector } from 'redux/contacts/contacts-selectors';
 //---------------------------------------------------------------//
 const Filter = () => {
-  const filter = useSelector(({ contacts }) => contacts.filter);
+  const filter = useSelector(filterSelector);
   const dispatch = useDispatch();
   return (
     <label className={s.label}>
@@ -18,7 +19,5 @@ const Filter = () => {
     </label>
   );
 };
-
-
 
 export { Filter };

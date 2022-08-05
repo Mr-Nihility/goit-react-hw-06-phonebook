@@ -2,11 +2,15 @@ import { ContactItem } from './ContactItem/ContactItem';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteUser } from 'redux/contacts/contscts-actions';
+import {
+  filterSelector,
+  itemsSelector,
+} from 'redux/contacts/contacts-selectors';
 //----------------------------------------------------------------//
 
 const ContactList = () => {
-  const items = useSelector(({ contacts }) => contacts.items);
-  const filter = useSelector(({ contacts }) => contacts.filter);
+  const items = useSelector(itemsSelector);
+  const filter = useSelector(filterSelector);
   const dispatch = useDispatch();
   const contacts = items.filter(({ name }) =>
     name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())
