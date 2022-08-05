@@ -1,5 +1,4 @@
 import s from './Filter.module.css';
-// import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { filterUser } from 'redux/contacts/contscts-actions';
 //---------------------------------------------------------------//
@@ -20,9 +19,6 @@ const Filter = () => {
   );
 };
 
-// Filter.propTypes = {
-//   filter: PropTypes.string.isRequired,
-//   handlerFilter: PropTypes.func.isRequired,
-// };
+
 
 export { Filter };

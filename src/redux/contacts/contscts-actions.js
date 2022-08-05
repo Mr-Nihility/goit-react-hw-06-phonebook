@@ -1,7 +1,9 @@
 import { ADD, FILTER, DELETE } from './contacts-types';
+import { createAction } from '@reduxjs/toolkit';
+//-------------------------------------------------------------//
 
-export const addUser = user => ({ type: ADD, payload: user });
+export const addUser = createAction(ADD);
 
-export const deleteUser = id => ({ type: DELETE, payload: id });
+export const deleteUser = createAction(DELETE);
 
-export const filterUser = value => ({ type: FILTER, payload: value });
+export const filterUser = createAction(FILTER);

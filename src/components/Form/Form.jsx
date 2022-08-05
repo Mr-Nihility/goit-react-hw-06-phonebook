@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import s from './Form.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { addUser } from 'redux/contacts/contscts-actions';
-// import PropTypes from 'prop-types';
+
 //--------------------------------------------------------------//
 
 const Form = () => {
@@ -82,8 +82,6 @@ const Form = () => {
   );
 };
 
-// Form.propTypes = {
-//   onSubmit: PropTypes.func.isRequired,
-// };
+
 
 export { Form };
